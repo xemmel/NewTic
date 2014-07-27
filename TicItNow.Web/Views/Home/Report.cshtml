@@ -1,0 +1,54 @@
+﻿@{
+  ViewBag.Title = "Report";
+}
+
+<h2>Weekly Report:</h2>
+<div data-ng-app>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Param</th>
+        <th>Value</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Level</td>
+        <td>
+          <input type="text" class="form-control" data-ng-model="input" />
+        </td>
+        <td>
+          <img style="width: 30px; height: 30px;" src="~/Images/green_light.png" data-ng-show="(input < 100) && (input)" />
+          <img style="width: 30px; height: 30px;" src="~/Images/red_light.png" data-ng-show="(input >= 100) && (input)" />
+          <img style="width: 30px; height: 30px;" src="~/Images/yellow_light.png" data-ng-show="!input" />
+        </td>
+      </tr>
+      <tr>
+        <td>Liquid</td>
+        <td>
+          <input type="text" class="form-control" data-ng-model="input2" />
+        </td>
+        <td>
+          <img style="width: 30px; height: 30px;" src="~/Images/green_light.png" data-ng-show="(input2 < 100) && (input2)" />
+          <img style="width: 30px; height: 30px;" src="~/Images/red_light.png" data-ng-show="(input2 >= 100) && (input2)" />
+          <img style="width: 30px; height: 30px;" src="~/Images/yellow_light.png" data-ng-show="!input2" />
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+@section headScript
+{
+  <script src="~/Scripts/angular.min.js"></script>
+
+}
+
+@section footScript
+{
+  <script>
+  </script>
+}
+

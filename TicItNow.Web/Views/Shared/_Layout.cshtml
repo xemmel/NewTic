@@ -8,14 +8,19 @@
   <meta charset="utf-8" />
   <title>@ViewBag.Title</title>
   <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+  @RenderSection(name: "headScript", required: false)
 </head>
 <body>
   <ul class="nav nav-pills">
-    <li><a href="#">Home</a></li>
+    <li>@Html.ActionLink("TicItNow","Index","Home")</li>
     <li><a href="#">Admin</a></li>
+    <li><a href="/Home/Report">Report</a></li>
+
   </ul>
   <div class="well container">
     @RenderBody()
   </div>
 </body>
+    @RenderSection(name: "footScript", required: false)
+
 </html>
