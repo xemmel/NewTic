@@ -52,3 +52,14 @@ C:\projects\NewTic\TicItNow.Web\bin\System.Web.WebPages.Razor.xml
 C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.csprojResolveAssemblyReference.cache
 C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.dll
 C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.pdb
+C:\projects\NewTic\TicItNow.Web\bin\EntityFramework.dll
+C:\projects\NewTic\TicItNow.Web\bin\EntityFramework.xml
+C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.Migrations.Init_Units.resources
+C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.csproj.GenerateResource.Cache
+C:\projects\NewTic\TicItNow.Web\bin\Antlr3.Runtime.dll
+C:\projects\NewTic\TicItNow.Web\bin\System.Web.Optimization.dll
+C:\projects\NewTic\TicItNow.Web\bin\WebGrease.dll
+C:\projects\NewTic\TicItNow.Web\bin\Antlr3.Runtime.pdb
+C:\projects\NewTic\TicItNow.Web\bin\System.Web.Optimization.xml
+C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.Migrations.Symbols.resources
+C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.Migrations.AP.resources

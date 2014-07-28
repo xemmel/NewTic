@@ -1,0 +1,50 @@
+﻿@model TicItNow.Web.Models.AnalysisParam
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AnalysisParam</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MinValue)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MinValue)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaxValue)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaxValue)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Unit.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Unit.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Symbol.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Symbol.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AnalysisParamId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

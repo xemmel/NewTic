@@ -1,0 +1,68 @@
+﻿@model TicItNow.Web.Models.AnalysisParam
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>AnalysisParam</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MinValue)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MinValue)
+            @Html.ValidationMessageFor(model => model.MinValue)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaxValue)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaxValue)
+            @Html.ValidationMessageFor(model => model.MaxValue)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnitId, "Unit")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("UnitId", String.Empty)
+            @Html.ValidationMessageFor(model => model.UnitId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SymbolId, "Symbol")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("SymbolId", String.Empty)
+            @Html.ValidationMessageFor(model => model.SymbolId)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

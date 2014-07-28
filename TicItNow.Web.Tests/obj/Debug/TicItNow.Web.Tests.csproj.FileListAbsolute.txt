@@ -28,3 +28,5 @@ C:\projects\NewTic\TicItNow.Web.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\projects\NewTic\TicItNow.Web.Tests\obj\Debug\TicItNow.Web.Tests.csprojResolveAssemblyReference.cache
 C:\projects\NewTic\TicItNow.Web.Tests\obj\Debug\TicItNow.Web.Tests.dll
 C:\projects\NewTic\TicItNow.Web.Tests\obj\Debug\TicItNow.Web.Tests.pdb
+C:\projects\NewTic\TicItNow.Web.Tests\bin\Debug\EntityFramework.dll
+C:\projects\NewTic\TicItNow.Web.Tests\bin\Debug\EntityFramework.xml

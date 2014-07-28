@@ -12,8 +12,16 @@
 </head>
 <body>
   <ul class="nav nav-pills">
-    <li>@Html.ActionLink("TicItNow","Index","Home")</li>
-    <li><a href="#">Admin</a></li>
+    <li>@Html.ActionLink("TicItNow", "Index", "Home")</li>
+    <li>
+      <ul>
+        Admin
+        <li>@Html.ActionLink("Units", "Index", "Unit")</li>
+        <li>@Html.ActionLink("Symbols", "Index", "Symbol")</li>
+        <li>@Html.ActionLink("Analysis Params", "Index", "AP")</li>
+
+      </ul>
+    </li>
     <li><a href="/Home/Report">Report</a></li>
 
   </ul>
@@ -21,6 +29,8 @@
     @RenderBody()
   </div>
 </body>
-    @RenderSection(name: "footScript", required: false)
+@RenderSection(name: "Scripts", required: false)
+
+@RenderSection(name: "footScript", required: false)
 
 </html>
