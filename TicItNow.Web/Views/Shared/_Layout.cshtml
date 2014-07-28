@@ -11,8 +11,45 @@
   @RenderSection(name: "headScript", required: false)
 </head>
 <body>
- 
-  <nav class="navbar navbar-default navbar-fixed-top">
+  @*<nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a href="@Url.Action("Index", "Home")">
+        <img style="height: 50px; width: 70px;" class="img-responsive img-rounded" src="~/Images/Tic.png" />
+      </a>
+    </div>
+    <ul class="nav nav-pills">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li>@Html.ActionLink("SI Units", "Index", "Unit")</li>
+          <li>@Html.ActionLink("Symbols", "Index", "Symbol")</li>
+          <li>@Html.ActionLink("Analysis Params", "Index", "AP")</li>
+        </ul>
+      </li>
+      <li><a href="/Home/Report">Report</a></li>
+
+    </ul>
+  </nav>*@
+
+  @*<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="@Url.Action("Index","Home")">
+           <img style="height: 30px; width: 50px;" class="img-responsive img-rounded" src="~/Images/Tic.png" />
+          Home
+        </a>
+      </div>
+      <div class="navbar navbar-collapse" id="navCol">
+        <ul class="nav navbar-nav navbar-right">
+          <li>@Html.ActionLink("About", "About", "Home")</li>
+          <li><a href="/Home/Report">Report</a></li>
+          <li><a href="/Home/Report">Report</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>*@
+
+  <nav class="navbar navbar-default">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -49,15 +86,8 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
-  <div id="fix-for-navbar-fixed-top-spacing" style="height: 60px;">&nbsp;</div>
   <div class="well container">
     @RenderBody()
-  </div>
-  <div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-      <p class="navbar-text pull-left">Built by Morten la Cour 2014</p>
-      <a class="navbar-btn btn btn-danger pull-right">Contact</a>
-    </div>
   </div>
 </body>
 <script src="~/Scripts/jquery-1.9.0.min.js"></script>
