@@ -11,7 +11,7 @@
   @RenderSection(name: "headScript", required: false)
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  @*<nav class="navbar navbar-default">
     <div class="navbar-header">
       <a href="@Url.Action("Index", "Home")">
         <img style="height: 50px; width: 70px;" class="img-responsive img-rounded" src="~/Images/Tic.png" />
@@ -29,6 +29,62 @@
       <li><a href="/Home/Report">Report</a></li>
 
     </ul>
+  </nav>*@
+
+  @*<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="@Url.Action("Index","Home")">
+           <img style="height: 30px; width: 50px;" class="img-responsive img-rounded" src="~/Images/Tic.png" />
+          Home
+        </a>
+      </div>
+      <div class="navbar navbar-collapse" id="navCol">
+        <ul class="nav navbar-nav navbar-right">
+          <li>@Html.ActionLink("About", "About", "Home")</li>
+          <li><a href="/Home/Report">Report</a></li>
+          <li><a href="/Home/Report">Report</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>*@
+
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+          <img style="height: 30px; width: 50px;" class="img-responsive img-rounded" src="~/Images/Tic.png" />
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li>@Html.ActionLink("SI Units", "Index", "Unit")</li>
+              <li>@Html.ActionLink("Symbols", "Index", "Symbol")</li>
+              <li>@Html.ActionLink("Analysis Params", "Index", "AP")</li>
+            </ul>
+          </li>
+          <li><a href="/Home/Report">Report</a></li>
+          <li><a href="#">Contact</a></li>
+
+        </ul>
+
+
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
   </nav>
   <div class="well container">
     @RenderBody()
