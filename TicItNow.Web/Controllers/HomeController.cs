@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TicItNow.Web.Models;
 
 namespace TicItNow.Web.Controllers
 {
@@ -10,6 +13,8 @@ namespace TicItNow.Web.Controllers
     {
         //
         // GET: /Home/
+      private TICDataContext db = new TICDataContext();
+
 
         public ActionResult Index()
         {
@@ -18,7 +23,8 @@ namespace TicItNow.Web.Controllers
 
         public ActionResult Report()
         {
-          return View();
+          var analysisparams = db.AnalysisParams.Include(a => a.Unit).Include(a => a.Symbol);
+          return View(analysisparams.ToList());
         }
 
     }
