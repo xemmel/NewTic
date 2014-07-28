@@ -1,57 +1,60 @@
 ﻿@model IEnumerable<TicItNow.Web.Models.AnalysisParam>
 
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Analysis Parameters</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table table-striped table-hover">
+  <thead>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MinValue)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxValue)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Unit.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Symbol.Name)
-        </th>
-        <th></th>
+      <th>
+        @Html.DisplayNameFor(model => model.Name)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.MinValue)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.MaxValue)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Unit.Name)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Symbol.Name)
+      </th>
+      <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+      <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+          @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MinValue)
+          @Html.DisplayFor(modelItem => item.MinValue)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaxValue)
+          @Html.DisplayFor(modelItem => item.MaxValue)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Unit.Name)
+          @Html.DisplayFor(modelItem => item.Unit.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Symbol.Name)
+          @Html.DisplayFor(modelItem => item.Symbol.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AnalysisParamId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AnalysisParamId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AnalysisParamId })
+          @Html.ActionLink("Edit", "Edit", new { id = item.AnalysisParamId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.AnalysisParamId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.AnalysisParamId })
         </td>
-    </tr>
-}
-
+      </tr>
+    }
+  </tbody>
 </table>
