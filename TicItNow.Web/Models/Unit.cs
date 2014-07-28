@@ -9,7 +9,7 @@ namespace TicItNow.Web.Models
   public class Unit
   {
     public int UnitId { get; set; }
-    [DisplayName("Unit")]
+    [DisplayName("SI Unit")]
     public string Name { get; set; }
   }
 }
