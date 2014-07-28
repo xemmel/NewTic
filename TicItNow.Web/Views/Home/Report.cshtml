@@ -12,38 +12,18 @@
 
 <h2>Weekly Report:</h2>
 <div data-ng-app>
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th class="col-md-1">Param</th>
-          <th class="col-md-1">Value</th>
-          <th class="col-md-1">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        @*    <tr>
-        <td>Level</td>
-        <td>
-          <input type="text" class="form-control" data-ng-model="input1" />
-        </td>
-        <td>
-          <img style="width: 30px; height: 30px;" src="~/Images/green_light.png" data-ng-show="(input1 < 100) && (input1)" />
-          <img style="width: 30px; height: 30px;" src="~/Images/red_light.png" data-ng-show="(input1 >= 100) && (input1)" />
-          <img style="width: 30px; height: 30px;" src="~/Images/yellow_light.png" data-ng-show="!input1" />
-        </td>
-      </tr>
-      <tr>
-        <td>Liquid</td>
-        <td>
-          <input type="text" class="form-control" data-ng-model="input2" />
-        </td>
-        <td>
-          <img style="width: 30px; height: 30px;" src="~/Images/green_light.png" data-ng-show="(input2 < 100) && (input2)" />
-          <img style="width: 30px; height: 30px;" src="~/Images/red_light.png" data-ng-show="(input2 >= 100) && (input2)" />
-          <img style="width: 30px; height: 30px;" src="~/Images/yellow_light.png" data-ng-show="!input2" />
-        </td>
-      </tr>*@
+      <div class="row">
+              <div class="col-lg-2">
+               Parameter
+              </div>
+              <div class="col-lg-3">
+                Value
+              </div>
+              <div class="col-lg-1">
+                Status
+              </div>
+            </div>
+  <hr />
         @{int i = 0;}
 
         @foreach (var ap in Model)
@@ -52,22 +32,22 @@
           string sSymbol = (ap.Symbol == null) ? "" : "(" + ap.Symbol.Name + ")";
           string sUnit = (ap.Unit == null) ? "" : "(" + ap.Unit.Name + ")";
         
-          <tr>
-            <td>@ap.Name @sSymbol</td>
-            <td>
-              <input type="text" class="form-control" data-ng-model=@inputName  placeholder="Enter value here @sUnit"/>
-            </td>
-            <td>
-              <img style="width: 30px; height: 30px;" src="~/Images/green_light.png" data-ng-show="(@inputName <= @ap.MaxValue) && (@inputName >= @ap.MinValue) && (@inputName)" />
-              <img style="width: 30px; height: 30px;" src="~/Images/red_light.png" data-ng-show="((@inputName > @ap.MaxValue) || (@inputName < @ap.MinValue)) && (@inputName)" />
-
-              <img style="width: 30px; height: 30px;" src="~/Images/yellow_light.png" data-ng-show="!@inputName" />
-            </td>
-          </tr>
+            <div class="row">
+              <div class="col-lg-2">
+                @ap.Name @sSymbol
+              </div>
+              <div class="col-lg-3">
+                <input type="text" class="form-control" data-ng-model=@inputName  placeholder="Enter value here @sUnit"/>
+              </div>
+              <div class="col-lg-1">
+                <img style="width: 30px; height: 30px;" src="~/Images/green_light.png" data-ng-show="(@inputName <= @ap.MaxValue) && (@inputName >= @ap.MinValue) && (@inputName)" />
+                <img style="width: 30px; height: 30px;" src="~/Images/red_light.png" data-ng-show="((@inputName > @ap.MaxValue) || (@inputName < @ap.MinValue)) && (@inputName)" />
+                <img style="width: 30px; height: 30px;" src="~/Images/yellow_light.png" data-ng-show="!@inputName" />
+              </div>
+            </div>
+          <hr />
         }
-      </tbody>
-    </table>
-  </div>
+  
 </div>
 
 @section headScript
