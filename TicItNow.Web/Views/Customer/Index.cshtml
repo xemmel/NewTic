@@ -6,53 +6,66 @@
 
 <div class="input-form" data-ng-app="customerApp" data-ng-controller="customerCtrl">
   <div class="row">
-  <label>Search:</label><input type="text" data-ng-model="customerFilter" class="form-control" />
-</div>
-
+    <div class="col-md-2">
+      <label>Search:</label><input type="text" data-ng-model="customerFilter" class="form-control" />
+    </div>
+  </div>
+  <hr />
   <div class="row">
-    <label>Name</label>
-    <input type="text" class="form-control" data-ng-model="customer.Name" placeholder="Enter customer name.." />
+    <div class="col-md-3">
+
+      <label>Name</label>
+      <input type="text" class="form-control" data-ng-model="customer.Name" placeholder="Enter customer name.." />
+    </div>
   </div>
   <div class="row">
-    <label>Type</label>
-    <input type="text" class="form-control" data-ng-model="customer.CustomerType" placeholder="Enter Type here.." />
+    <div class="col-md-1">
+      <label>Type</label>
+      <input type="text" class="form-control" data-ng-model="customer.CustomerType" placeholder="" />
+    </div>
   </div>
-   <div class="row">
-    <label>Valid From</label>
-    <input type="text" class="form-control dp" data-ng-model="customer.ValidFrom" />
+  <div class="row">
+    <div class="col-md-2">
+      <label>Valid From</label>
+      <input type="text" class="form-control dp" data-ng-model="customer.ValidFrom" />
+    </div>
+    <div class="col-md-2">
+      <label>Valid To</label>
+      <input type="text" class="form-control dp" data-ng-model="customer.ValidTo" />
+    </div>
   </div>
-   <div class="row">
-    <label>Valid To</label>
-    <input type="text" class="form-control dp" data-ng-model="customer.ValidTo" />
+  <p />
+  <div class="row">
+    <div class="col-md-3">
+      <button class="btn btn-primary" data-ng-show="!editMode" data-ng-click="submit()">Create</button>
+      <button class="btn btn-danger" data-ng-show="editMode" data-ng-click="update()">Update</button>
+      <button class="btn" data-ng-show="editMode" data-ng-click="cancelUpdate()">Cancel</button>
+    </div>
   </div>
 
-  <button class="btn btn-primary" data-ng-show="!editMode" data-ng-click="submit()">Create</button>
-   <button class="btn btn-danger" data-ng-show="editMode" data-ng-click="update()">Update</button>
-    <button class="btn" data-ng-show="editMode" data-ng-click="cancelUpdate()">Cancel</button>
-
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Valid From</th>
-      <th>Valid To</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr data-ng-repeat="c in customerList | filter:{Name:customerFilter}">
-      <td>{{c.Name}}</td>
-      <td>{{c.CustomerType}}</td>
-      <td>{{c.ValidFrom | date:'mediumDate'}}</td>
-      <td>{{c.ValidTo | date:'mediumDate'}}</td>
-      <td>
-        <a href="#" data-ng-click="delete(c.CustomerId)">Remove</a> | 
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Valid From</th>
+        <th>Valid To</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="c in customerList | filter:{Name:customerFilter}">
+        <td>{{c.Name}}</td>
+        <td>{{c.CustomerType}}</td>
+        <td>{{c.ValidFrom | date:'mediumDate'}}</td>
+        <td>{{c.ValidTo | date:'mediumDate'}}</td>
+        <td>
+          <a href="#" data-ng-click="delete(c.CustomerId)">Remove</a> | 
         <a href="#" data-ng-click="edit(c)">Edit</a>
-      </td>
- 
-    </tr>
-  </tbody>
-</table>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
 
 
 </div>
@@ -65,10 +78,10 @@
 
 @section Scripts
 {
-    <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+  <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
   <script src="~/Scripts/angular.min.js"></script>
 
- 
+
 }
 @section footScript
 {
@@ -102,12 +115,12 @@
 
       $scope.customerList = [];
       $scope.updateList = function () {
-        $http({method:"GET",url:"/api/CustomerApi"}).
+        $http({ method: "GET", url: "/api/CustomerApi" }).
           success(function (data) {
             console.dir(data);
             $scope.customerList = data;
           }).
-          error(function(data) {});
+          error(function (data) { });
       }; //End updateList
 
       $scope.delete = function (id) {
