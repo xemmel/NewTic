@@ -5,11 +5,18 @@
 <h2>Customers</h2>
 
 <div class="input-form" data-ng-app="customerApp" data-ng-controller="customerCtrl">
-  <div class="row">
-    <div class="col-md-2">
-      <label>Search:</label><input type="text" data-ng-model="customerFilter" class="form-control" />
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <label>Search:</label>
+      <input type="text" data-ng-model="customerFilter" class="form-control" />
     </div>
-  </div>
+    <div class="form-group">
+      <div class="input-group">
+      <span data-ng-show="customerFilter" class="btn" data-ng-click="resetSearch()"><i class="glyphicon glyphicon-remove"></i></span>
+      </div>
+    </div>
+  </form>
+  <div class="row">
   <hr />
   <div class="row">
     <div class="col-md-3">
@@ -94,13 +101,14 @@
 
     var app = angular.module("customerApp", []);
     app.controller("customerCtrl", function ($scope, $http) {
+      $scope.customerFilter = "";
       $scope.customer = {};
       $scope.editMode = false;
       $scope.x = "Clara";
-
+      var restUrl = "/api/CustomerApi";
       $scope.submit = function () {
         // console.dir($scope.customer);
-        $http({ method: "POST", url: "/api/CustomerApi", data: $scope.customer })
+        $http({ method: "POST", url: restUrl, data: $scope.customer })
           .success(function (data) {
             //console.log("Success data: " + data);
             $scope.updateList();
@@ -115,7 +123,7 @@
 
       $scope.customerList = [];
       $scope.updateList = function () {
-        $http({ method: "GET", url: "/api/CustomerApi" }).
+        $http({ method: "GET", url: restUrl }).
           success(function (data) {
             console.dir(data);
             $scope.customerList = data;
@@ -125,7 +133,7 @@
 
       $scope.delete = function (id) {
         //console.log(id);
-        $http({ method: "DELETE", url: "/api/CustomerApi/" + id }).
+        $http({ method: "DELETE", url: restUrl + "/" + id }).
           success(function (data) {
             //console.log("dele Success data: " + data);
             $scope.updateList();
@@ -145,7 +153,7 @@
 
       $scope.update = function () {
         //console.dir($scope.customer);
-        $http({ method: "PUT", url: "/api/CustomerApi/" + $scope.customer.CustomerId, data: $scope.customer }).
+        $http({ method: "PUT", url: restUrl + "/" + $scope.customer.CustomerId, data: $scope.customer }).
           success(function (data) {
             console.log("SUC" + data);
             $scope.editMode = false;
@@ -164,6 +172,10 @@
 
       };
 
+      $scope.resetSearch = function () {
+        // console.log("reset");
+        $scope.customerFilter = "";
+      };
       $scope.updateList();
     });
   </script>
