@@ -12,11 +12,11 @@
     </div>
     <div class="form-group">
       <div class="input-group">
-      <span data-ng-show="customerFilter.length > 0" class="btn" data-ng-click="resetSearch()"><i class="glyphicon glyphicon-remove"></i></span>
+        <span data-ng-show="customerFilter.length > 0" class="btn" data-ng-click="resetSearch()"><i class="glyphicon glyphicon-remove"></i></span>
       </div>
     </div>
   </form>
-  <div class="row">
+
   <hr />
   <div class="row">
     <div class="col-md-3">
@@ -34,13 +34,42 @@
   <div class="row">
     <div class="col-md-2">
       <label>Valid From</label>
-      <input type="text" class="form-control dp" data-ng-model="customer.ValidFrom" />
+
+      <p class="input-group">
+        <input type="text" class="form-control"
+          data-datepicker-popup="{{format}}"
+          data-ng-model="customer.ValidFrom"
+          data-is-open="fromOpened"
+          data-min-date="minDate"
+          data-datepicker-options="dateOptions"
+          data-date-disabled="disabled(date, mode)"
+          data-ng-required="true"
+          data-close-text="Close" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" data-ng-click="fromOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
     </div>
+
     <div class="col-md-2">
       <label>Valid To</label>
-      <input type="text" class="form-control dp" data-ng-model="customer.ValidTo" />
+       <p class="input-group">
+        <input type="text" class="form-control"
+          data-datepicker-popup="{{format}}"
+          data-ng-model="customer.ValidTo"
+          data-is-open="toOpened"
+          data-min-date="minDate"
+          data-datepicker-options="dateOptions"
+          data-date-disabled="disabled(date, mode)"
+          data-ng-required="false"
+          data-close-text="Close" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" data-ng-click="toOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
     </div>
   </div>
+
   <p />
   <div class="row">
     <div class="col-md-3">
@@ -49,6 +78,8 @@
       <button class="btn" data-ng-show="editMode" data-ng-click="cancelUpdate()">Cancel</button>
     </div>
   </div>
+
+
 
   <table class="table table-striped table-hover">
     <thead>
@@ -87,19 +118,22 @@
 {
   <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
   <script src="~/Scripts/angular.min.js"></script>
-
+  <script src="~/Scripts/angular-ui.js"></script>
 
 }
+
+
+
 @section footScript
 {
   <script>
 
     $(function () {
-      $(".dp").datepicker();
+      $(".dp").datepicker({ dateFormat: 'M d, yy' });
     });
 
 
-    var app = angular.module("customerApp", []);
+    var app = angular.module("customerApp", ['ui.bootstrap']);
     app.controller("customerCtrl", function ($scope, $http) {
       $scope.customerFilter = "";
       $scope.customer = {};
@@ -177,6 +211,32 @@
         $scope.customerFilter = "";
       };
       $scope.updateList();
+
+      //Date functions
+
+      $scope.fromOpened = false;
+      $scope.to = false;
+
+      $scope.fromOpen = function ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.fromOpened = true;
+      };
+
+      $scope.toOpen = function ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.toOpened = true;
+      };
+
+      $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+      };
+      $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate', 'mediumDate'];
+      $scope.format = $scope.formats[4];
     });
   </script>
 }
