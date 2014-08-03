@@ -254,6 +254,8 @@
     <Content Include="Scripts\angular-ui.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\App\SymbolApp.js" />
+    <Content Include="Scripts\App\CustomerApp.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -579,6 +581,7 @@
     <Content Include="Views\AP\Delete.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Views\Symbol\SPAIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

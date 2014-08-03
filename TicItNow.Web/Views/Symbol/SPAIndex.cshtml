@@ -1,0 +1,75 @@
+﻿@{
+  ViewBag.Title = "Symbols";
+}
+
+<h2>Symbols</h2>
+<div data-ng-app="symbolMod" data-ng-controller="sCtrl">
+  <div>
+    Status: {{status}}
+  </div>
+
+  <form class="form-inline">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" data-ng-model="searchFilter">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <hr />
+  <form class="form-inline" role="form">
+    <div class="row">
+      <div class="col-md-3">
+
+        <label>Name</label>
+        <input type="text" class="form-control" data-ng-model="symbol.Name" placeholder="Enter Symbol name.." />
+      </div>
+      <button class="btn btn-primary" data-ng-click="create()" data-ng-hide="updateMode">
+        Create
+      </button>
+      <button class="btn btn-danger" data-ng-click="update()" data-ng-show="updateMode">
+        Update
+      </button>
+      <button class="btn" data-ng-click="cancelEdit()" data-ng-show="updateMode">
+        Cancel
+      </button>
+
+
+    </div>
+
+  </form>
+
+
+  <table class="table table-striped">
+    <tr data-ng-repeat="symbol in symbols | filter: {Name: searchFilter}">
+      <td>{{symbol.Name}}</td>
+      <td>
+        <a href="#" data-ng-click="edit()"><i class="glyphicon glyphicon-edit"></i></a>
+        |
+        <a href="#" data-ng-click="delete()"><i class="glyphicon glyphicon-remove" data-ng-hide="updateMode"></i></a>
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+
+@section headScript
+{
+
+  <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+}
+
+@section Scripts
+{
+  <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+  <script src="~/Scripts/angular.min.js"></script>
+  <script src="~/Scripts/angular-resource.min.js"></script>
+  <script src="~/Scripts/angular-ui.js"></script>
+  <script src="~/Scripts/App/SymbolApp.js"></script>
+}
+
