@@ -15,6 +15,7 @@ namespace TicItNow.Web.Models
     public DbSet<Symbol> Symbols { get; set; }
     public DbSet<AnalysisParam> AnalysisParams { get; set; }
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<Subscription> Subscriptions { get; set; }
 
 
   }

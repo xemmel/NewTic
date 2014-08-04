@@ -28,9 +28,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
       <label>Type</label>
-      <input type="text" class="form-control" data-ng-model="customer.CustomerType" placeholder="" />
+      @*<input type="text" class="form-control" data-ng-model="customer.CustomerType" placeholder="" />*@
+      <select data-ng-model="sub" data-ng-options="subscription.Name for subscription in subscriptions" class="form-control"></select>
     </div>
   </div>
   <div class="row">
@@ -90,14 +91,16 @@
         <th>Type</th>
         <th>Valid From</th>
         <th>Valid To</th>
+        <th>Active</th>
       </tr>
     </thead>
     <tbody>
       <tr data-ng-repeat="c in customerList | filter:{Name:customerFilter}">
         <td>{{c.Name}}</td>
-        <td>{{c.CustomerType}}</td>
+        <td>{{getSubName(c.CustomerType)}}</td>
         <td>{{c.ValidFrom | date:'mediumDate'}}</td>
-        <td>{{c.ValidTo}}</td>
+        <td>{{c.ValidTo | date:'mediumDate'}}</td>
+        <td>{{c.IsActive}}</td>
         <td>
           <a href="#" data-ng-click="delete(c.CustomerId)">Remove</a> | 
         <a href="#" data-ng-click="edit(c)">Edit</a>

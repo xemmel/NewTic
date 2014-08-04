@@ -127,6 +127,7 @@
     <Compile Include="Controllers\CustomerApiController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SubscriptionApiController.cs" />
     <Compile Include="Controllers\SymbolController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Global.asax.cs">
@@ -148,9 +149,14 @@
     <Compile Include="Migrations\201408011301488_Customers.Designer.cs">
       <DependentUpon>201408011301488_Customers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408040702137_Subscriptions.cs" />
+    <Compile Include="Migrations\201408040702137_Subscriptions.Designer.cs">
+      <DependentUpon>201408040702137_Subscriptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnalysisParam.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\Symbol.cs" />
     <Compile Include="Models\TICDataContext.cs" />
     <Compile Include="Models\Unit.cs" />
@@ -610,6 +616,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408011301488_Customers.resx">
       <DependentUpon>201408011301488_Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408040702137_Subscriptions.resx">
+      <DependentUpon>201408040702137_Subscriptions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

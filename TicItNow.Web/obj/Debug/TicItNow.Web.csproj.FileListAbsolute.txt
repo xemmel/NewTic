@@ -64,3 +64,4 @@ C:\projects\NewTic\TicItNow.Web\bin\System.Web.Optimization.xml
 C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.Migrations.Symbols.resources
 C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.Migrations.AP.resources
 C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.Migrations.Customers.resources
+C:\projects\NewTic\TicItNow.Web\obj\Debug\TicItNow.Web.Migrations.Subscriptions.resources

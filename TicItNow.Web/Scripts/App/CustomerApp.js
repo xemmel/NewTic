@@ -4,14 +4,34 @@
 
 
 var app = angular.module("customerApp", ['ui.bootstrap']);
+
+//var customerCtrl = function($scope, $http) {
 app.controller("customerCtrl", function ($scope, $http) {
+
+ 
+
   $scope.customerFilter = "";
   $scope.customer = {};
   $scope.editMode = false;
+
+
+  $scope.subscriptions = [];
+  $scope.sub = {};
+
+  $http({ method: "GET", url: "/api/SubscriptionApi" }).
+    success(function (data) {
+      $scope.subscriptions = data;
+      $scope.sub = $scope.subscriptions[0];
+      console.dir($scope.subscriptions);
+    });
+
   $scope.x = "Clara";
   var restUrl = "/api/CustomerApi";
+
+
   $scope.submit = function () {
     // console.dir($scope.customer);
+    $scope.customer.CustomerType = $scope.sub.SubscriptionId;
     $http({ method: "POST", url: restUrl, data: $scope.customer })
       .success(function (data) {
         //console.log("Success data: " + data);
@@ -50,19 +70,46 @@ app.controller("customerCtrl", function ($scope, $http) {
       });
   }; //end delete
 
+  function getSubscriptionIndex(id) {
+    for (i = 0; i < $scope.subscriptions.length; i++) {
+      if ($scope.subscriptions[i].SubscriptionId == id) {
+        return i;
+      }
+    }
+  }
+  
+  $scope.getSubName = function(id)
+  {
+    for (i = 0; i < $scope.subscriptions.length; i++) {
+      if ($scope.subscriptions[i].SubscriptionId == id) {
+        return $scope.subscriptions[i].Name;
+      }
+    }
+
+  }
+
   $scope.edit = function (cust) {
+    var subId = cust.CustomerType;
+    console.log("SubId: " + subId);
+    var index = getSubscriptionIndex(subId);
+    console.log("Index: " + index);
+
+    //console.log(getSubscriptionIndex());
+    $scope.sub = $scope.subscriptions[index];
     $scope.customer = cust;
     $scope.editMode = true;
   }; //end edit
 
   $scope.update = function () {
     //console.dir($scope.customer);
+    $scope.customer.CustomerType = $scope.sub.SubscriptionId;
     $http({ method: "PUT", url: restUrl + "/" + $scope.customer.CustomerId, data: $scope.customer }).
       success(function (data) {
         console.log("SUC" + data);
         $scope.editMode = false;
         $scope.updateList();
         $scope.customer = {};
+        $scope.sub = $scope.subscriptions[0];
 
       }).
       error(function (date) { });
@@ -73,6 +120,7 @@ app.controller("customerCtrl", function ($scope, $http) {
     $scope.customer = {};
     $scope.editMode = false;
     $scope.updateList();
+    $scope.sub = $scope.subscriptions[0];
 
   };
 
