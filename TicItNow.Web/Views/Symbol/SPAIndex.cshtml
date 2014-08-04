@@ -4,6 +4,10 @@
 
 <h2>Symbols</h2>
 <div data-ng-app="symbolMod" data-ng-controller="sCtrl">
+  <div class="loader">
+    <img src="~/Images/ajax-loader.gif" class="ajax-loader" data-ng-show="loadMode" />
+  </div>
+
   <div>
     Status: {{status}}
   </div>
@@ -62,6 +66,7 @@
 {
 
   <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+  <link href="~/Content/Views/general.css" rel="stylesheet" />
 }
 
 @section Scripts
