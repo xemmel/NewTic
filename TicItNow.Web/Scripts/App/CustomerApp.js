@@ -13,7 +13,7 @@ app.controller("customerCtrl", function ($scope, $http) {
   $scope.customerFilter = "";
   $scope.customer = {};
   $scope.editMode = false;
-
+  $scope.loadMode = false;
 
   $scope.subscriptions = [];
   $scope.sub = {};
@@ -46,13 +46,20 @@ app.controller("customerCtrl", function ($scope, $http) {
 
 
   $scope.customerList = [];
+
   $scope.updateList = function () {
+    $scope.loadMode = true;
     $http({ method: "GET", url: restUrl }).
       success(function (data) {
         console.dir(data);
         $scope.customerList = data;
+        $scope.loadMode = false;
+
       }).
-      error(function (data) { });
+      error(function (data) {
+        $scope.loadMode = false;
+
+      });
   }; //End updateList
 
   $scope.delete = function (id) {

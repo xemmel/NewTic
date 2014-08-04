@@ -4,9 +4,12 @@
 
 <h2>Customers</h2>
 
+<div data-ng-app="customerApp" data-ng-controller="customerCtrl">
+<div class="loader">
+		<img src="~/Images/ajax-loader.gif" class="ajax-loader" data-ng-show="loadMode"/>
+	</div>
 
-
-<div class="input-form" data-ng-app="customerApp" data-ng-controller="customerCtrl">
+<div class="input-form">
   <form class="form-inline" role="form">
     <div class="form-group">
       <label>Search:</label>
@@ -112,11 +115,13 @@
 
 
 </div>
+  </div>
 
 @section headScript
 {
 
   <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+  <link href="~/Content/Views/Customers.css" rel="stylesheet" />
 }
 
 @section Scripts
