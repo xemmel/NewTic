@@ -16,10 +16,17 @@ namespace TicItNow.Web.Controllers
       private TICDataContext db = new TICDataContext();
 
 
+      [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
+
+      [HttpPost]
+      public ActionResult Index(string userName, string passWord)
+      {
+        return View();
+      }
 
         public ActionResult Report()
         {

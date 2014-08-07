@@ -27,7 +27,10 @@
           <img style="height: 30px; width: 50px;" class="img-responsive img-rounded" src="~/Images/Tic.png" />
         </a>
       </div>
-
+      @{
+        bool isAuth = User.Identity.IsAuthenticated;
+        
+      }
       <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="#">About</a></li>
@@ -44,11 +47,26 @@
               <li>@Html.ActionLink("Symbols", "SPAIndex", "Symbol")</li>
             </ul>
           </li>
+          @if (!isAuth)
+          {
+            <li>@Html.ActionLink("Log on", "LogIn", "Auth")</li>
+          }
+          else
+          {
+            <li>@Html.ActionLink("Log out", "LogOut", "Auth")</li>
+          }
+
           <li><a href="/Home/Report">Report</a></li>
+
           <li><a href="#">Contact</a></li>
+          @if(isAuth)
+          {
+          <li><div class="badge">@User.Identity.Name</div>
 
+           
+          </li>
+          }
         </ul>
-
 
       </div>
       <!-- /.navbar-collapse -->

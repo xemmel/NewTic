@@ -13,6 +13,7 @@ namespace TicItNow.Web.Controllers
 
         //
         // GET: /Customer/
+            [Authorize]
 
         public ActionResult Index()
         {
@@ -22,6 +23,8 @@ namespace TicItNow.Web.Controllers
     
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
+
         public ActionResult Create(Customer customer)
         {
             db.Customers.Add(customer);
